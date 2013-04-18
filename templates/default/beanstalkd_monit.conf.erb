@@ -1,0 +1,4 @@
+check process beanstalkd with pidfile /var/run/beanstalkd.pid
+    start program = "/etc/init.d/beanstalkd start"
+    stop program = "/etc/init.d/beanstalkd stop"
+    if 5 restarts within 5 cycles then timeout
