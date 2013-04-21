@@ -67,12 +67,4 @@ template "/etc/default/beanstalkd" do
   notifies :restart, "service[beanstalkd]"
 end
 
-include_recipe "monit"
-
-template "/etc/monit/conf.d/beanstalkd.conf" do
-  owner 'root'
-  group 'root'
-  mode "644"
-  source 'beanstalkd_monit.conf.erb'
-  notifies :restart, "service[monit]"
-end
+monit_watch "beanstalkd"
